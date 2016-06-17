@@ -1,14 +1,10 @@
 ﻿using Infragistics.Excel;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.OleDb;
-using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ReadDataExcel
@@ -64,35 +60,59 @@ namespace ReadDataExcel
 
         private void simpleButtonExport_Click(object sender,EventArgs e)
         {
-            DataTable dtexcel = (DataTable)gridControl1.DataSource;
-            var result = (from a in dtexcel.AsEnumerable() select a[1]).Distinct().ToList();
-            foreach (var item in result)
+            try
             {
-                var iRowCount = 16;
-                var iStt = 1;
-                var wb = Workbook.Load(Application.StartupPath + "\\MAU01.xls");
-                var rs = (from a in dtexcel.AsEnumerable() where a[1].Equals(item.ToString()) select a[7]).FirstOrDefault();
-                var rs1 = (from a in dtexcel.AsEnumerable() where a[1].Equals(item.ToString()) select a[8]).FirstOrDefault();
-                wb.Worksheets[0].Rows[4].Cells[0].Value = rs1.ToString();
-                wb.Worksheets[0].Rows[6].Cells[0].Value = "Lớp :" + rs.ToString();
-                var dr = (from a in dtexcel.AsEnumerable() where a[1].Equals(item.ToString()) select a).CopyToDataTable();
-                for (var i = 0; i < dr.Rows.Count; i++)
+                DataTable dtexcel = (DataTable)gridControl1.DataSource;
+                var result = (from a in dtexcel.AsEnumerable() select a[1]).Distinct().ToList();
+                foreach (var item in result)
                 {
-                    wb.Worksheets[0].Rows[iRowCount].Cells[0].Value = iStt;
-                    wb.Worksheets[0].Rows[iRowCount].Cells[1].Value = dr.Rows[i]["MASV"].ToString();
-                    wb.Worksheets[0].Rows[iRowCount].Cells[2].Value = dr.Rows[i]["HODEM"].ToString();
-                    wb.Worksheets[0].Rows[iRowCount].Cells[3].Value = dr.Rows[i]["TEN"].ToString();
-                    wb.Worksheets[0].Rows[iRowCount].Cells[4].Value = dr.Rows[i]["NGAYSINH"].ToString();
-                    wb.Worksheets[0].Rows[iRowCount].Cells[5].Value = dr.Rows[i]["GIOITINH"].ToString();
-                    wb.Worksheets[0].Rows[iRowCount].Cells[6].Value = dr.Rows[i]["DIEMDANHGIA"].ToString();
-                    wb.Worksheets[0].Rows[iRowCount].Cells[7].Value = dr.Rows[i]["BTVN1"].ToString();
-                    wb.Worksheets[0].Rows[iRowCount].Cells[8].Value = dr.Rows[i]["BTVN2"].ToString();
-                    wb.Worksheets[0].Rows[iRowCount].Cells[9].Value = dr.Rows[i]["GIUAKY"].ToString();
-                    wb.Worksheets[0].Rows[iRowCount].Cells[12].Value = dr.Rows[i]["DIEUKIENTHI"].ToString();
-                    iRowCount++;
-                    iStt++;
+                    if (File.Exists(Application.StartupPath + item + ".xls"))
+                    {
+                        try
+                        {
+                            File.Delete(Application.StartupPath + item + ".xls");
+                        }
+                        catch (Exception ex)
+                        {
+                            EasyDialog.ShowErrorDialog(ex.Message);
+                        }
+                    }
+                    var iRowCount = 16;
+                    var iStt = 1;
+                    var wb = Workbook.Load(Application.StartupPath + "\\MAU01.xls");
+                    var rs = (from a in dtexcel.AsEnumerable() where a[1].Equals(item.ToString()) select a[7]).FirstOrDefault();
+                    var rs1 = (from a in dtexcel.AsEnumerable() where a[1].Equals(item.ToString()) select a[8]).FirstOrDefault();
+                    wb.Worksheets[0].Rows[4].Cells[0].Value = rs1.ToString();
+                    wb.Worksheets[0].Rows[6].Cells[0].Value = "Lớp : " + rs.ToString();
+                    wb.Worksheets[0].Rows[6].Cells[8].Value = "Năm nhập học : " + textEditNamNhapHoc.EditValue.ToString();
+                    wb.Worksheets[0].Rows[7].Cells[8].Value = "Ngày thi : " + textEditNgayThi.EditValue.ToString();
+                    wb.Worksheets[0].Rows[8].Cells[8].Value = "Lần thi thứ : " + textEditLanThi.EditValue.ToString();
+                    wb.Worksheets[0].Rows[8].Cells[0].Value = "Ngành : " + textEditNganh.EditValue.ToString();
+                    wb.Worksheets[0].Rows[9].Cells[0].Value = "Địa điểm thi : " + textEditDiaDiemThi.EditValue.ToString();
+                    var dr = (from a in dtexcel.AsEnumerable() where a[1].Equals(item.ToString()) select a).CopyToDataTable();
+                    for (var i = 0; i < dr.Rows.Count; i++)
+                    {
+                        wb.Worksheets[0].Rows[iRowCount].Cells[0].Value = iStt;
+                        wb.Worksheets[0].Rows[iRowCount].Cells[1].Value = dr.Rows[i]["MASV"].ToString();
+                        wb.Worksheets[0].Rows[iRowCount].Cells[2].Value = dr.Rows[i]["HODEM"].ToString();
+                        wb.Worksheets[0].Rows[iRowCount].Cells[3].Value = dr.Rows[i]["TEN"].ToString();
+                        wb.Worksheets[0].Rows[iRowCount].Cells[4].Value = dr.Rows[i]["NGAYSINH"];
+                        wb.Worksheets[0].Rows[iRowCount].Cells[5].Value = dr.Rows[i]["GIOITINH"].ToString();
+                        wb.Worksheets[0].Rows[iRowCount].Cells[6].Value = dr.Rows[i]["DIEMDANHGIA"].ToString();
+                        wb.Worksheets[0].Rows[iRowCount].Cells[7].Value = dr.Rows[i]["BTVN1"].ToString();
+                        wb.Worksheets[0].Rows[iRowCount].Cells[8].Value = dr.Rows[i]["BTVN2"].ToString();
+                        wb.Worksheets[0].Rows[iRowCount].Cells[9].Value = dr.Rows[i]["GIUAKY"].ToString();
+                        wb.Worksheets[0].Rows[iRowCount].Cells[12].Value = dr.Rows[i]["DIEUKIENTHI"].ToString();
+                        iRowCount++;
+                        wb.Worksheets[0].Rows[7].Cells[0].Value = "Tổng số học viên : " + iStt;
+                        iStt++;
+                    }
+                    wb.Save(item.ToString() + ".xls");
                 }
-                wb.Save(item.ToString() + ".xls");
+            }
+            catch (Exception ex)
+            {
+                EasyDialog.ShowErrorDialog(ex.Message);
             }
         }
     }
