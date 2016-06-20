@@ -41,10 +41,10 @@
     <Reference Include="DevExpress.XtraLayout.v14.2, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v14.2, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="Infragistics2.Excel.v8.1">
-      <HintPath>E:\My Projects\Backup\KivaManagement\KivaApplication\bin\Debug\Infragistics2.Excel.v8.1.dll</HintPath>
+      <HintPath>..\..\ReadDataExcelV2\ReadDataExcel\bin\Debug\Infragistics2.Excel.v8.1.dll</HintPath>
     </Reference>
     <Reference Include="Infragistics2.Win.UltraWinGrid.ExcelExport.v8.1">
-      <HintPath>E:\My Projects\Backup\KivaManagement\KivaApplication\bin\Debug\Infragistics2.Win.UltraWinGrid.ExcelExport.v8.1.dll</HintPath>
+      <HintPath>..\..\ReadDataExcelV2\ReadDataExcel\bin\Debug\Infragistics2.Win.UltraWinGrid.ExcelExport.v8.1.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

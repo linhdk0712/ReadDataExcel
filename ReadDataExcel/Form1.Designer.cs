@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.textEditSavaFilePath = new DevExpress.XtraEditors.TextEdit();
             this.textEditDiaDiemThi = new DevExpress.XtraEditors.TextEdit();
             this.textEditNganh = new DevExpress.XtraEditors.TextEdit();
@@ -52,6 +53,7 @@
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -75,10 +77,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.simpleButton1);
             this.layoutControl1.Controls.Add(this.textEditSavaFilePath);
             this.layoutControl1.Controls.Add(this.textEditDiaDiemThi);
             this.layoutControl1.Controls.Add(this.textEditNganh);
@@ -107,11 +111,22 @@
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.Image")));
+            this.simpleButton1.Location = new System.Drawing.Point(12, 64);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(140, 22);
+            this.simpleButton1.StyleController = this.layoutControl1;
+            this.simpleButton1.TabIndex = 15;
+            this.simpleButton1.Text = "Danh sách điều kiện thi";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
             // textEditSavaFilePath
             // 
-            this.textEditSavaFilePath.Location = new System.Drawing.Point(95, 64);
+            this.textEditSavaFilePath.Location = new System.Drawing.Point(239, 64);
             this.textEditSavaFilePath.Name = "textEditSavaFilePath";
-            this.textEditSavaFilePath.Size = new System.Drawing.Size(262, 20);
+            this.textEditSavaFilePath.Size = new System.Drawing.Size(118, 20);
             this.textEditSavaFilePath.StyleController = this.layoutControl1;
             this.textEditSavaFilePath.TabIndex = 14;
             // 
@@ -171,7 +186,7 @@
             this.simpleButtonExport.Size = new System.Drawing.Size(111, 22);
             this.simpleButtonExport.StyleController = this.layoutControl1;
             this.simpleButtonExport.TabIndex = 6;
-            this.simpleButtonExport.Text = "Export to Excel";
+            this.simpleButtonExport.Text = "Xuất bảng điểm";
             this.simpleButtonExport.Click += new System.EventHandler(this.simpleButtonExport_Click);
             // 
             // simpleButtonSelectFile
@@ -182,15 +197,15 @@
             this.simpleButtonSelectFile.Size = new System.Drawing.Size(111, 22);
             this.simpleButtonSelectFile.StyleController = this.layoutControl1;
             this.simpleButtonSelectFile.TabIndex = 5;
-            this.simpleButtonSelectFile.Text = "Chọn File";
+            this.simpleButtonSelectFile.Text = "Chọn File F730";
             this.simpleButtonSelectFile.Click += new System.EventHandler(this.simpleButtonSelectFile_Click);
             // 
             // gridControl1
             // 
-            this.gridControl1.Location = new System.Drawing.Point(12, 88);
+            this.gridControl1.Location = new System.Drawing.Point(12, 90);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(792, 368);
+            this.gridControl1.Size = new System.Drawing.Size(792, 366);
             this.gridControl1.TabIndex = 4;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -217,7 +232,8 @@
             this.layoutControlItem7,
             this.layoutControlItem8,
             this.layoutControlItem11,
-            this.layoutControlItem9});
+            this.layoutControlItem9,
+            this.layoutControlItem10});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Size = new System.Drawing.Size(816, 468);
@@ -226,9 +242,9 @@
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.gridControl1;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 76);
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 78);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(796, 372);
+            this.layoutControlItem1.Size = new System.Drawing.Size(796, 370);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -298,9 +314,9 @@
             // layoutControlItem11
             // 
             this.layoutControlItem11.Control = this.textEditSavaFilePath;
-            this.layoutControlItem11.Location = new System.Drawing.Point(0, 52);
+            this.layoutControlItem11.Location = new System.Drawing.Point(144, 52);
             this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(349, 24);
+            this.layoutControlItem11.Size = new System.Drawing.Size(205, 26);
             this.layoutControlItem11.Text = "Nơi lưu trữ files :";
             this.layoutControlItem11.TextSize = new System.Drawing.Size(80, 13);
             // 
@@ -309,9 +325,18 @@
             this.layoutControlItem9.Control = this.textEditDiaDiemThi;
             this.layoutControlItem9.Location = new System.Drawing.Point(349, 52);
             this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(447, 24);
+            this.layoutControlItem9.Size = new System.Drawing.Size(447, 26);
             this.layoutControlItem9.Text = "Địa điểm thi :";
             this.layoutControlItem9.TextSize = new System.Drawing.Size(80, 13);
+            // 
+            // layoutControlItem10
+            // 
+            this.layoutControlItem10.Control = this.simpleButton1;
+            this.layoutControlItem10.Location = new System.Drawing.Point(0, 52);
+            this.layoutControlItem10.Name = "layoutControlItem10";
+            this.layoutControlItem10.Size = new System.Drawing.Size(144, 26);
+            this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem10.TextVisible = false;
             // 
             // Form1
             // 
@@ -344,6 +369,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -374,6 +400,8 @@
         private DevExpress.XtraEditors.TextEdit textEditSavaFilePath;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem11;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
     }
 }
 
