@@ -63,12 +63,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_5E2664A31189BD3F8616BDAFA6222247"
-        "OwnerKey" = "8:_8FAC8D339ACA4A67B33D17AE3917C4F7"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_6D8CBECF9CFBE718BDA08E34FFDF6285"
         "OwnerKey" = "8:_97285523C93248728A462C5A83DE6D0D"
         "MsmSig" = "8:_UNDEFINED"
@@ -119,6 +113,18 @@
         {
         "MsmKey" = "8:_7E595A3ABD133537FB899700D4B75F56"
         "OwnerKey" = "8:_155EB50255B14A9585860314DC87F119"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_860ABDAF9888E830329162220F88DED8"
+        "OwnerKey" = "8:_8FAC8D339ACA4A67B33D17AE3917C4F7"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_860ABDAF9888E830329162220F88DED8"
+        "OwnerKey" = "8:_E54266297C37E620FD378C72E6F6D9B7"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -189,18 +195,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_B0CBD37C9C9CC7E9E79EF94EB4BFB049"
-        "OwnerKey" = "8:_8FAC8D339ACA4A67B33D17AE3917C4F7"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B0CBD37C9C9CC7E9E79EF94EB4BFB049"
-        "OwnerKey" = "8:_5E2664A31189BD3F8616BDAFA6222247"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_B5B1C0841530390BFC2EB22DB53DEBB2"
         "OwnerKey" = "8:_C28DE656FF784DCA19D3E5CBD4F24EA9"
         "MsmSig" = "8:_UNDEFINED"
@@ -274,31 +268,31 @@
         "Entry"
         {
         "MsmKey" = "8:_D1CD47522E2E02EBC9BE202A61601182"
-        "OwnerKey" = "8:_C28DE656FF784DCA19D3E5CBD4F24EA9"
+        "OwnerKey" = "8:_6D8CBECF9CFBE718BDA08E34FFDF6285"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_D1CD47522E2E02EBC9BE202A61601182"
-        "OwnerKey" = "8:_B5B1C0841530390BFC2EB22DB53DEBB2"
+        "OwnerKey" = "8:_97285523C93248728A462C5A83DE6D0D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_D1CD47522E2E02EBC9BE202A61601182"
-        "OwnerKey" = "8:_03D0E16C863BF2C9E48E8F5A8DBBDBF4"
+        "OwnerKey" = "8:_F046C6A1DCF4C3499A7D18F7FD0BD285"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_D1CD47522E2E02EBC9BE202A61601182"
-        "OwnerKey" = "8:_3C839D8F274C6B1EFA09C17BCACB0BDB"
+        "OwnerKey" = "8:_97C676FD2F65CB8016D8B8118CA56EB9"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_D1CD47522E2E02EBC9BE202A61601182"
-        "OwnerKey" = "8:_7E595A3ABD133537FB899700D4B75F56"
+        "OwnerKey" = "8:_97874DA5376FCCF2A5AC442B7539649D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -310,31 +304,37 @@
         "Entry"
         {
         "MsmKey" = "8:_D1CD47522E2E02EBC9BE202A61601182"
-        "OwnerKey" = "8:_97874DA5376FCCF2A5AC442B7539649D"
+        "OwnerKey" = "8:_7E595A3ABD133537FB899700D4B75F56"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_D1CD47522E2E02EBC9BE202A61601182"
-        "OwnerKey" = "8:_97C676FD2F65CB8016D8B8118CA56EB9"
+        "OwnerKey" = "8:_3C839D8F274C6B1EFA09C17BCACB0BDB"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_D1CD47522E2E02EBC9BE202A61601182"
-        "OwnerKey" = "8:_F046C6A1DCF4C3499A7D18F7FD0BD285"
+        "OwnerKey" = "8:_03D0E16C863BF2C9E48E8F5A8DBBDBF4"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_D1CD47522E2E02EBC9BE202A61601182"
-        "OwnerKey" = "8:_97285523C93248728A462C5A83DE6D0D"
+        "OwnerKey" = "8:_B5B1C0841530390BFC2EB22DB53DEBB2"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_D1CD47522E2E02EBC9BE202A61601182"
-        "OwnerKey" = "8:_6D8CBECF9CFBE718BDA08E34FFDF6285"
+        "OwnerKey" = "8:_C28DE656FF784DCA19D3E5CBD4F24EA9"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E54266297C37E620FD378C72E6F6D9B7"
+        "OwnerKey" = "8:_8FAC8D339ACA4A67B33D17AE3917C4F7"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -352,25 +352,19 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_D1CD47522E2E02EBC9BE202A61601182"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_8FAC8D339ACA4A67B33D17AE3917C4F7"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_5E2664A31189BD3F8616BDAFA6222247"
+        "OwnerKey" = "8:_E54266297C37E620FD378C72E6F6D9B7"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B0CBD37C9C9CC7E9E79EF94EB4BFB049"
+        "OwnerKey" = "8:_860ABDAF9888E830329162220F88DED8"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -445,6 +439,12 @@
         "OwnerKey" = "8:_B5B1C0841530390BFC2EB22DB53DEBB2"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_D1CD47522E2E02EBC9BE202A61601182"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -463,6 +463,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -479,6 +487,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -652,37 +668,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_5E2664A31189BD3F8616BDAFA6222247"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Infragistics2.Win.UltraWinGrid.ExcelExport.v8.1, Version=8.1.20081.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_5E2664A31189BD3F8616BDAFA6222247"
-                    {
-                    "Name" = "8:Infragistics2.Win.UltraWinGrid.ExcelExport.v8.1.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Infragistics2.Win.UltraWinGrid.ExcelExport.v8.1.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_D2F411A0C996402DB727A35A9CD54A80"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_6D8CBECF9CFBE718BDA08E34FFDF6285"
             {
             "AssemblyRegister" = "3:1"
@@ -728,6 +713,37 @@
                     }
                 }
             "SourcePath" = "8:DevExpress.Utils.v14.2.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_D2F411A0C996402DB727A35A9CD54A80"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_860ABDAF9888E830329162220F88DED8"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Infragistics2.Excel.v8.1, Version=8.1.20081.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_860ABDAF9888E830329162220F88DED8"
+                    {
+                    "Name" = "8:Infragistics2.Excel.v8.1.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Infragistics2.Excel.v8.1.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_D2F411A0C996402DB727A35A9CD54A80"
@@ -838,37 +854,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B0CBD37C9C9CC7E9E79EF94EB4BFB049"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Infragistics2.Excel.v8.1, Version=8.1.20081.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_B0CBD37C9C9CC7E9E79EF94EB4BFB049"
-                    {
-                    "Name" = "8:Infragistics2.Excel.v8.1.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Infragistics2.Excel.v8.1.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_D2F411A0C996402DB727A35A9CD54A80"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B5B1C0841530390BFC2EB22DB53DEBB2"
             {
             "AssemblyRegister" = "3:1"
@@ -945,6 +930,37 @@
                     }
                 }
             "SourcePath" = "8:DevExpress.Data.v14.2.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_D2F411A0C996402DB727A35A9CD54A80"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_E54266297C37E620FD378C72E6F6D9B7"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Infragistics2.Win.UltraWinGrid.ExcelExport.v8.1, Version=8.1.20081.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_E54266297C37E620FD378C72E6F6D9B7"
+                    {
+                    "Name" = "8:Infragistics2.Win.UltraWinGrid.ExcelExport.v8.1.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Infragistics2.Win.UltraWinGrid.ExcelExport.v8.1.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_D2F411A0C996402DB727A35A9CD54A80"
@@ -1048,7 +1064,7 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:ReadDataExcelSetup"
+        "ProductName" = "8:F730"
         "ProductCode" = "8:{428CFC39-D89F-4B02-970D-506118C67BB2}"
         "PackageCode" = "8:{A1AEB4B2-80F0-49CF-BE6C-E146CD07BFE3}"
         "UpgradeCode" = "8:{01702547-EE6E-4195-BCBE-EA5B0209606E}"
@@ -1058,14 +1074,14 @@
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
         "ProductVersion" = "8:1.0.0"
-        "Manufacturer" = "8:Default Company Name"
+        "Manufacturer" = "8:Linhdk0712"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
         "Title" = "8:ReadDataExcelSetup"
         "Subject" = "8:"
-        "ARPCONTACT" = "8:Default Company Name"
+        "ARPCONTACT" = "8:Do Khanh Linh"
         "Keywords" = "8:"
-        "ARPCOMMENTS" = "8:"
+        "ARPCOMMENTS" = "8:Chương trình phân tách file excel"
         "ARPURLINFOABOUT" = "8:"
         "ARPPRODUCTICON" = "8:"
         "ARPIconIndex" = "3:0"
