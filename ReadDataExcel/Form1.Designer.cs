@@ -345,7 +345,7 @@
             this.ClientSize = new System.Drawing.Size(816, 468);
             this.Controls.Add(this.layoutControl1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "F730 Application";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);

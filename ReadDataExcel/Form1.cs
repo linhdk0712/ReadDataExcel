@@ -268,23 +268,26 @@ namespace ReadDataExcel
             }
             try
             {
-                var wb = new Workbook();  
-                          
                 DataTable dtexcel = (DataTable)gridControl1.DataSource;
                 var cathi = (from a in dtexcel.AsEnumerable() select a[10]).Distinct().ToList();
                 foreach (var item in cathi)
-                {                 
+                {
+                    var wb = new Workbook();
+                    wb.Worksheets.Clear();
                     var mamon = (from a in dtexcel.AsEnumerable() where a[10].Equals(item.ToString()) select a[9]).Distinct().ToList();
-                    foreach ( var itemmamon in mamon)
+                    foreach (var itemmamon in mamon)
                     {
-
                         var wh = wb.Worksheets.Add(itemmamon.ToString());
-                        
+
+                        #region MyRegion
+
+                        #region Merged Cell
+
                         WorksheetMergedCellsRegion mergedRergion = wh.MergedCellsRegions.Add(0,0,0,3);
                         WorksheetMergedCellsRegion mergedRergion1 = wh.MergedCellsRegions.Add(0,4,0,7);
                         WorksheetMergedCellsRegion mergedRergion2 = wh.MergedCellsRegions.Add(1,0,1,3);
                         WorksheetMergedCellsRegion mergedRergion3 = wh.MergedCellsRegions.Add(1,4,1,7);
-                        WorksheetMergedCellsRegion mergedRergion4 = wh.MergedCellsRegions.Add(2,0,2,7);
+                        WorksheetMergedCellsRegion mergedRergion4 = wh.MergedCellsRegions.Add(2,0,3,7);
                         WorksheetMergedCellsRegion monthi = wh.MergedCellsRegions.Add(5,0,5,3);
                         WorksheetMergedCellsRegion namnhaphoc = wh.MergedCellsRegions.Add(5,4,5,7);
                         WorksheetMergedCellsRegion lop = wh.MergedCellsRegions.Add(6,0,6,3);
@@ -293,73 +296,150 @@ namespace ReadDataExcel
                         WorksheetMergedCellsRegion ngaythi = wh.MergedCellsRegions.Add(7,4,7,7);
                         WorksheetMergedCellsRegion diachi = wh.MergedCellsRegions.Add(8,0,8,7);
                         WorksheetMergedCellsRegion hovaten = wh.MergedCellsRegions.Add(10,2,10,3);
+
+                        #endregion Merged Cell
+
                         // ĐẠI HỌC THÁI NGUYÊN
+
+                        #region Tên trường
+
                         mergedRergion.Value = "ĐẠI HỌC THÁI NGUYÊN";
                         mergedRergion.CellFormat.VerticalAlignment = VerticalCellAlignment.Center;
                         mergedRergion.CellFormat.Alignment = HorizontalCellAlignment.Center;
                         mergedRergion.CellFormat.Font.Bold = ExcelDefaultableBoolean.True;
+
+                        #endregion Tên trường
+
                         // CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
+
+                        #region Tên nước
+
                         mergedRergion1.Value = "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM";
                         mergedRergion1.CellFormat.VerticalAlignment = VerticalCellAlignment.Center;
                         mergedRergion1.CellFormat.Alignment = HorizontalCellAlignment.Center;
                         mergedRergion1.CellFormat.Font.Bold = ExcelDefaultableBoolean.True;
+
+                        #endregion Tên nước
+
                         // TRUNG TÂM ĐÀO TẠO TỪ XA
+
+                        #region Tên đơn vị
+
                         mergedRergion2.Value = "TRUNG TÂM ĐÀO TẠO TỪ XA";
                         mergedRergion2.CellFormat.VerticalAlignment = VerticalCellAlignment.Center;
                         mergedRergion2.CellFormat.Alignment = HorizontalCellAlignment.Center;
                         mergedRergion2.CellFormat.Font.Bold = ExcelDefaultableBoolean.True;
+
+                        #endregion Tên đơn vị
+
                         // Độc lập tự do hạnh phúc
+
+                        #region Khẩu hiệu
+
                         mergedRergion3.Value = "Độc lập - Tự do - Hạnh phúc";
                         mergedRergion3.CellFormat.VerticalAlignment = VerticalCellAlignment.Center;
                         mergedRergion3.CellFormat.Alignment = HorizontalCellAlignment.Center;
                         mergedRergion3.CellFormat.Font.Bold = ExcelDefaultableBoolean.True;
+
+                        #endregion Khẩu hiệu
+
                         //DANH SÁCH ĐIỀU KIỆN DỰ THI HẾT MÔN
+
+                        #region Tiêu đề file
+
                         mergedRergion4.Value = "DANH SÁCH ĐIỀU KIỆN DỰ THI HẾT MÔN";
                         mergedRergion4.CellFormat.VerticalAlignment = VerticalCellAlignment.Center;
                         mergedRergion4.CellFormat.Alignment = HorizontalCellAlignment.Center;
                         mergedRergion4.CellFormat.Font.Bold = ExcelDefaultableBoolean.True;
+
+                        #endregion Tiêu đề file
+
                         var iRowCount = 11;
                         var iStt = 1;
                         // lop
-                        var rs = (from a in dtexcel.AsEnumerable() where a[9].Equals(itemmamon.ToString()) select a[7]).FirstOrDefault();
-                        lop.Value ="Lớp : " + rs.ToString();
+
+                        #region Lớp
+
+                        var rs = (from a in dtexcel.AsEnumerable() where a[9].Equals(itemmamon.ToString()) select a[7]).Distinct().ToArray();
+                        lop.Value = "Lớp : " + string.Join(",",rs);
                         lop.CellFormat.VerticalAlignment = VerticalCellAlignment.Center;
                         lop.CellFormat.Alignment = HorizontalCellAlignment.Left;
                         lop.CellFormat.Font.Bold = ExcelDefaultableBoolean.True;
+
+                        #endregion Lớp
+
                         // ten mon
+
+                        #region Môn thi
+
                         var rs1 = (from a in dtexcel.AsEnumerable() where a[9].Equals(itemmamon.ToString()) select a[8]).FirstOrDefault();
                         monthi.Value = "Môn thi : " + rs1.ToString();
                         monthi.CellFormat.VerticalAlignment = VerticalCellAlignment.Center;
                         monthi.CellFormat.Alignment = HorizontalCellAlignment.Left;
                         monthi.CellFormat.Font.Bold = ExcelDefaultableBoolean.True;
+
+                        #endregion Môn thi
+
                         //nganh
+
+                        #region Ngành
+
                         nganh.Value = "Ngành : " + textEditNganh.EditValue.ToString();
                         nganh.CellFormat.VerticalAlignment = VerticalCellAlignment.Center;
                         nganh.CellFormat.Alignment = HorizontalCellAlignment.Left;
                         nganh.CellFormat.Font.Bold = ExcelDefaultableBoolean.True;
+
+                        #endregion Ngành
+
                         // dia diem
+
+                        #region Địa điểm thi
+
                         diachi.Value = "Địa điểm thi : " + textEditDiaDiemThi.EditValue.ToString();
                         diachi.CellFormat.VerticalAlignment = VerticalCellAlignment.Center;
                         diachi.CellFormat.Alignment = HorizontalCellAlignment.Left;
                         diachi.CellFormat.Font.Bold = ExcelDefaultableBoolean.True;
+
+                        #endregion Địa điểm thi
+
                         //nam hoc
+
+                        #region Năm nhập học
+
                         namnhaphoc.Value = "Năm nhập học : " + textEditNamNhapHoc.EditValue.ToString();
                         namnhaphoc.CellFormat.VerticalAlignment = VerticalCellAlignment.Center;
                         namnhaphoc.CellFormat.Alignment = HorizontalCellAlignment.Left;
                         namnhaphoc.CellFormat.Font.Bold = ExcelDefaultableBoolean.True;
+
+                        #endregion Năm nhập học
+
                         // lan thi
+
+                        #region Lần thi
+
                         lanthi.Value = "Lần thi thứ : " + textEditLanThi.EditValue.ToString();
                         lanthi.CellFormat.VerticalAlignment = VerticalCellAlignment.Center;
                         lanthi.CellFormat.Alignment = HorizontalCellAlignment.Left;
                         lanthi.CellFormat.Font.Bold = ExcelDefaultableBoolean.True;
+
+                        #endregion Lần thi
+
                         // ngay thi
+
+                        #region Ngày thi
+
                         ngaythi.Value = "Ngày thi : " + textEditNgayThi.EditValue.ToString();
                         ngaythi.CellFormat.VerticalAlignment = VerticalCellAlignment.Center;
                         ngaythi.CellFormat.Alignment = HorizontalCellAlignment.Left;
                         ngaythi.CellFormat.Font.Bold = ExcelDefaultableBoolean.True;
-                        // header
+
+                        #endregion Ngày thi
+
+                        //Collum STT
                         wh.Rows[10].Cells[0].Value = "STT";
+                        //Collum MASV
                         wh.Rows[10].Cells[1].Value = "Mã sinh viên";
+                        //Collum HOVATEN
                         hovaten.Value = "Họ và tên";
                         hovaten.CellFormat.VerticalAlignment = VerticalCellAlignment.Center;
                         hovaten.CellFormat.Alignment = HorizontalCellAlignment.Center;
@@ -368,104 +448,144 @@ namespace ReadDataExcel
                         hovaten.CellFormat.TopBorderStyle = CellBorderLineStyle.Thin;
                         hovaten.CellFormat.LeftBorderStyle = CellBorderLineStyle.Thin;
                         hovaten.CellFormat.RightBorderStyle = CellBorderLineStyle.Thin;
-                        hovaten.CellFormat.ShrinkToFit = ExcelDefaultableBoolean.True;
+                        //Collum NGAYSINH
                         wh.Rows[10].Cells[4].Value = "Ngày sinh";
+                        //Collum GIOITINH
                         wh.Rows[10].Cells[5].Value = "Giới tính";
+                        //Collum LOP
                         wh.Rows[10].Cells[6].Value = "Lớp";
+                        //Collum DIEUKIENTHI
                         wh.Rows[10].Cells[7].Value = "Điều kiện dự thi";
+                        //Format collum
                         wh.Rows[10].CellFormat.Font.Bold = ExcelDefaultableBoolean.True;
+
+                        #region border
+
                         wh.Rows[10].Cells[0].CellFormat.BottomBorderStyle = CellBorderLineStyle.Thin;
                         wh.Rows[10].Cells[0].CellFormat.TopBorderStyle = CellBorderLineStyle.Thin;
                         wh.Rows[10].Cells[0].CellFormat.LeftBorderStyle = CellBorderLineStyle.Thin;
                         wh.Rows[10].Cells[0].CellFormat.RightBorderStyle = CellBorderLineStyle.Thin;
+
+                        #endregion border
+
+                        #region Alignment
+
                         wh.Rows[10].Cells[0].CellFormat.Alignment = HorizontalCellAlignment.Center;
                         wh.Rows[10].Cells[0].CellFormat.VerticalAlignment = VerticalCellAlignment.Center;
-                        wh.Rows[10].Cells[10].CellFormat.ShrinkToFit = ExcelDefaultableBoolean.True;
+
+                        #endregion Alignment
+
+                        // Apply format to other collums
+
                         wh.Rows[10].Cells[1].CellFormat.SetFormatting(wh.Rows[10].Cells[0].CellFormat);
                         wh.Rows[10].Cells[4].CellFormat.SetFormatting(wh.Rows[10].Cells[0].CellFormat);
                         wh.Rows[10].Cells[5].CellFormat.SetFormatting(wh.Rows[10].Cells[0].CellFormat);
                         wh.Rows[10].Cells[6].CellFormat.SetFormatting(wh.Rows[10].Cells[0].CellFormat);
                         wh.Rows[10].Cells[7].CellFormat.SetFormatting(wh.Rows[10].Cells[0].CellFormat);
 
+                        #endregion MyRegion
 
                         var dr = (from a in dtexcel.AsEnumerable() where a[9].Equals(itemmamon.ToString()) select a).CopyToDataTable();
                         for (var i = 0; i < dr.Rows.Count; i++)
                         {
                             // Format collum STT
-                           wh.Rows[iRowCount].Cells[0].Value = iStt;
-                           wh.Rows[iRowCount].Cells[0].CellFormat.BottomBorderStyle = CellBorderLineStyle.Thin;
-                           wh.Rows[iRowCount].Cells[0].CellFormat.TopBorderStyle = CellBorderLineStyle.Thin;
-                           wh.Rows[iRowCount].Cells[0].CellFormat.LeftBorderStyle = CellBorderLineStyle.Thin;
-                           wh.Rows[iRowCount].Cells[0].CellFormat.RightBorderStyle = CellBorderLineStyle.Thin;                           
-                            // Format collum MASV
-                           wh.Rows[iRowCount].Cells[1].Value = dr.Rows[i]["MASV"].ToString();
-                           wh.Rows[iRowCount].Cells[1].CellFormat.BottomBorderStyle = CellBorderLineStyle.Thin;
-                           wh.Rows[iRowCount].Cells[1].CellFormat.TopBorderStyle = CellBorderLineStyle.Thin;
-                           wh.Rows[iRowCount].Cells[1].CellFormat.LeftBorderStyle = CellBorderLineStyle.Thin;
-                           wh.Rows[iRowCount].Cells[1].CellFormat.RightBorderStyle = CellBorderLineStyle.Thin;
-                          
-                            // Format collum HODEM
-                           wh.Rows[iRowCount].Cells[2].Value = dr.Rows[i]["HODEM"].ToString();
-                           wh.Rows[iRowCount].Cells[2].CellFormat.BottomBorderStyle = CellBorderLineStyle.Thin;
-                           wh.Rows[iRowCount].Cells[2].CellFormat.TopBorderStyle = CellBorderLineStyle.Thin;
-                           wh.Rows[iRowCount].Cells[2].CellFormat.LeftBorderStyle = CellBorderLineStyle.Thin;
-                           wh.Rows[iRowCount].Cells[2].CellFormat.RightBorderStyle = CellBorderLineStyle.Thin;
-                          
-                            // Format collum TEN
-                           wh.Rows[iRowCount].Cells[3].Value = dr.Rows[i]["TEN"].ToString();
-                           wh.Rows[iRowCount].Cells[3].CellFormat.BottomBorderStyle = CellBorderLineStyle.Thin;
-                           wh.Rows[iRowCount].Cells[3].CellFormat.TopBorderStyle = CellBorderLineStyle.Thin;
-                           wh.Rows[iRowCount].Cells[3].CellFormat.LeftBorderStyle = CellBorderLineStyle.Thin;
-                           wh.Rows[iRowCount].Cells[3].CellFormat.RightBorderStyle = CellBorderLineStyle.Thin;
-                          
-                            // Format collum NGAYSINH
-                           wh.Rows[iRowCount].Cells[4].Value = dr.Rows[i]["NGAYSINH"];
-                           wh.Rows[iRowCount].Cells[4].CellFormat.BottomBorderStyle = CellBorderLineStyle.Thin;
-                           wh.Rows[iRowCount].Cells[4].CellFormat.TopBorderStyle = CellBorderLineStyle.Thin;
-                            wb.Worksheets[0].Rows[iRowCount].Cells[4].CellFormat.LeftBorderStyle = CellBorderLineStyle.Thin;
-                            wb.Worksheets[0].Rows[iRowCount].Cells[4].CellFormat.RightBorderStyle = CellBorderLineStyle.Thin;
-                          
-                            // Format collum GIOITINH
-                           wh.Rows[iRowCount].Cells[5].Value = dr.Rows[i]["GIOITINH"].ToString();
-                           wh.Rows[iRowCount].Cells[5].CellFormat.BottomBorderStyle = CellBorderLineStyle.Thin;
-                           wh.Rows[iRowCount].Cells[5].CellFormat.TopBorderStyle = CellBorderLineStyle.Thin;
-                           wh.Rows[iRowCount].Cells[5].CellFormat.LeftBorderStyle = CellBorderLineStyle.Thin;
-                           wh.Rows[iRowCount].Cells[5].CellFormat.RightBorderStyle = CellBorderLineStyle.Thin;
-                        
-                            // Format collum DIEMDANHGIA
-                           wh.Rows[iRowCount].Cells[6].Value = dr.Rows[i]["LOP"].ToString();
-                           wh.Rows[iRowCount].Cells[6].CellFormat.BottomBorderStyle = CellBorderLineStyle.Thin;
-                           wh.Rows[iRowCount].Cells[6].CellFormat.TopBorderStyle = CellBorderLineStyle.Thin;
-                           wh.Rows[iRowCount].Cells[6].CellFormat.LeftBorderStyle = CellBorderLineStyle.Thin;
-                           wh.Rows[iRowCount].Cells[6].CellFormat.RightBorderStyle = CellBorderLineStyle.Thin;
 
-                            // Format collum BTVN1
-                           wh.Rows[iRowCount].Cells[7].Value = dr.Rows[i]["DIEUKIENTHI"].ToString();
-                           wh.Rows[iRowCount].Cells[7].CellFormat.BottomBorderStyle = CellBorderLineStyle.Thin;
-                           wh.Rows[iRowCount].Cells[7].CellFormat.TopBorderStyle = CellBorderLineStyle.Thin;
-                           wh.Rows[iRowCount].Cells[7].CellFormat.LeftBorderStyle = CellBorderLineStyle.Thin;
-                           wh.Rows[iRowCount].Cells[7].CellFormat.RightBorderStyle = CellBorderLineStyle.Thin;                     
-                            iRowCount++;                           
+                            #region Contents
+
+                            wh.Rows[iRowCount].Cells[0].Value = iStt;
+                            wh.Rows[iRowCount].Cells[0].CellFormat.BottomBorderStyle = CellBorderLineStyle.Thin;
+                            wh.Rows[iRowCount].Cells[0].CellFormat.TopBorderStyle = CellBorderLineStyle.Thin;
+                            wh.Rows[iRowCount].Cells[0].CellFormat.LeftBorderStyle = CellBorderLineStyle.Thin;
+                            wh.Rows[iRowCount].Cells[0].CellFormat.RightBorderStyle = CellBorderLineStyle.Thin;
+                            wh.Rows[iRowCount].Cells[0].CellFormat.Alignment = HorizontalCellAlignment.Center;
+                            wh.Rows[iRowCount].Cells[0].CellFormat.VerticalAlignment = VerticalCellAlignment.Center;
+                            // Format collum MASV
+                            wh.Rows[iRowCount].Cells[1].Value = dr.Rows[i]["MASV"].ToString();
+                            wh.Rows[iRowCount].Cells[1].CellFormat.BottomBorderStyle = CellBorderLineStyle.Thin;
+                            wh.Rows[iRowCount].Cells[1].CellFormat.TopBorderStyle = CellBorderLineStyle.Thin;
+                            wh.Rows[iRowCount].Cells[1].CellFormat.LeftBorderStyle = CellBorderLineStyle.Thin;
+                            wh.Rows[iRowCount].Cells[1].CellFormat.RightBorderStyle = CellBorderLineStyle.Thin;
+
+                            // Format collum HODEM
+                            wh.Rows[iRowCount].Cells[2].Value = dr.Rows[i]["HODEM"].ToString();
+                            wh.Rows[iRowCount].Cells[2].CellFormat.BottomBorderStyle = CellBorderLineStyle.Thin;
+                            wh.Rows[iRowCount].Cells[2].CellFormat.TopBorderStyle = CellBorderLineStyle.Thin;
+                            wh.Rows[iRowCount].Cells[2].CellFormat.LeftBorderStyle = CellBorderLineStyle.Thin;
+                            wh.Rows[iRowCount].Cells[2].CellFormat.RightBorderStyle = CellBorderLineStyle.Thin;
+
+                            // Format collum TEN
+                            wh.Rows[iRowCount].Cells[3].Value = dr.Rows[i]["TEN"].ToString();
+                            wh.Rows[iRowCount].Cells[3].CellFormat.BottomBorderStyle = CellBorderLineStyle.Thin;
+                            wh.Rows[iRowCount].Cells[3].CellFormat.TopBorderStyle = CellBorderLineStyle.Thin;
+                            wh.Rows[iRowCount].Cells[3].CellFormat.LeftBorderStyle = CellBorderLineStyle.Thin;
+                            wh.Rows[iRowCount].Cells[3].CellFormat.RightBorderStyle = CellBorderLineStyle.Thin;
+
+                            // Format collum NGAYSINH
+                            wh.Rows[iRowCount].Cells[4].Value = dr.Rows[i]["NGAYSINH"];
+                            wh.Rows[iRowCount].Cells[4].CellFormat.BottomBorderStyle = CellBorderLineStyle.Thin;
+                            wh.Rows[iRowCount].Cells[4].CellFormat.TopBorderStyle = CellBorderLineStyle.Thin;
+                            wh.Rows[iRowCount].Cells[4].CellFormat.LeftBorderStyle = CellBorderLineStyle.Thin;
+                            wh.Rows[iRowCount].Cells[4].CellFormat.RightBorderStyle = CellBorderLineStyle.Thin;
+
+                            // Format collum GIOITINH
+                            wh.Rows[iRowCount].Cells[5].Value = dr.Rows[i]["GIOITINH"].ToString();
+                            wh.Rows[iRowCount].Cells[5].CellFormat.BottomBorderStyle = CellBorderLineStyle.Thin;
+                            wh.Rows[iRowCount].Cells[5].CellFormat.TopBorderStyle = CellBorderLineStyle.Thin;
+                            wh.Rows[iRowCount].Cells[5].CellFormat.LeftBorderStyle = CellBorderLineStyle.Thin;
+                            wh.Rows[iRowCount].Cells[5].CellFormat.RightBorderStyle = CellBorderLineStyle.Thin;
+                            wh.Rows[iRowCount].Cells[5].CellFormat.Alignment = HorizontalCellAlignment.Center;
+                            wh.Rows[iRowCount].Cells[5].CellFormat.VerticalAlignment = VerticalCellAlignment.Center;
+                            // Format collum LOP
+                            wh.Rows[iRowCount].Cells[6].Value = dr.Rows[i]["LOP"].ToString();
+                            wh.Rows[iRowCount].Cells[6].CellFormat.BottomBorderStyle = CellBorderLineStyle.Thin;
+                            wh.Rows[iRowCount].Cells[6].CellFormat.TopBorderStyle = CellBorderLineStyle.Thin;
+                            wh.Rows[iRowCount].Cells[6].CellFormat.LeftBorderStyle = CellBorderLineStyle.Thin;
+                            wh.Rows[iRowCount].Cells[6].CellFormat.RightBorderStyle = CellBorderLineStyle.Thin;
+                            wh.Rows[iRowCount].Cells[6].CellFormat.Alignment = HorizontalCellAlignment.Center;
+                            wh.Rows[iRowCount].Cells[6].CellFormat.VerticalAlignment = VerticalCellAlignment.Center;
+
+                            // Format collum DIEUKIENTHI
+                            wh.Rows[iRowCount].Cells[7].Value = dr.Rows[i]["DIEUKIENTHI"].ToString();
+                            wh.Rows[iRowCount].Cells[7].CellFormat.BottomBorderStyle = CellBorderLineStyle.Thin;
+                            wh.Rows[iRowCount].Cells[7].CellFormat.TopBorderStyle = CellBorderLineStyle.Thin;
+                            wh.Rows[iRowCount].Cells[7].CellFormat.LeftBorderStyle = CellBorderLineStyle.Thin;
+                            wh.Rows[iRowCount].Cells[7].CellFormat.RightBorderStyle = CellBorderLineStyle.Thin;
+
+                            iRowCount++;
                             iStt++;
-                        }            
-                        //Save file
-                        if (string.IsNullOrEmpty(textEditSavaFilePath.EditValue.ToString()))
+
+                            #endregion Contents
+                        }
+                    }
+                    //Save file
+
+                    #region Save file
+
+                    if (string.IsNullOrEmpty(textEditSavaFilePath.EditValue.ToString()))
+                    {
+                        wb.Save(item.ToString() + ".xls");
+                        EasyDialog.ShowSuccessfulDialog("Xuất file điều kiện thành công");
+                    }
+                    else
+                    {
+                        wb.Save(textEditSavaFilePath.EditValue.ToString() + "\\" + item.ToString() + ".xls");
+                        if (File.Exists(textEditSavaFilePath.EditValue.ToString() + "\\" + item.ToString() + ".xls"))
                         {
-                            wb.Save(item.ToString() + ".xls");
-                            EasyDialog.ShowSuccessfulDialog("Xuất file điều kiện thành công");
+                            EasyDialog.ShowSuccessfulDialog("Xuất file điều kiện thi thành công");
                         }
                         else
                         {
-                            wb.Save(textEditSavaFilePath.EditValue.ToString() + "\\" + item.ToString() + ".xls");
-                            EasyDialog.ShowSuccessfulDialog("Xuất file điều kiện thi thành công");
+                            EasyDialog.ShowUnsuccessfulDialog("Xuất file điều kiện thi không thành công");
                         }
-                    }                   
-                }               
+                    }
+
+                    #endregion Save file
+                }
             }
             catch (Exception ex)
             {
                 EasyDialog.ShowErrorDialog(ex.Message);
-            }          
+            }
         }
     }
 }
