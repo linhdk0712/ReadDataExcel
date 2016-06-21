@@ -502,7 +502,7 @@ namespace ReadDataExcel
                                 wh.Rows[iRowCount].Cells[3].CellFormat.SetFormatting(wh.Rows[iRowCount].Cells[1].CellFormat);
 
                                 // Format collum NGAYSINH
-                                wh.Rows[iRowCount].Cells[4].Value = dr.Rows[i]["NGAYSINH"];
+                                wh.Rows[iRowCount].Cells[4].Value = string.Format("{0:dd/MM/yyyy}",dr.Rows[i]["NGAYSINH"]);
                                 wh.Rows[iRowCount].Cells[4].CellFormat.SetFormatting(wh.Rows[iRowCount].Cells[1].CellFormat);
 
                                 // Format collum GIOITINH
