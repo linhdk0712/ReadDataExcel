@@ -1,11 +1,14 @@
 ﻿using Infragistics.Excel;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace ReadDataExcel
 {
@@ -90,7 +93,7 @@ namespace ReadDataExcel
                     wb.Worksheets[0].Rows[4].Cells[0].Value = rs1.ToString();
                     wb.Worksheets[0].Rows[6].Cells[0].Value = "Lớp : " + rs.ToString();
                     wb.Worksheets[0].Rows[6].Cells[8].Value = "Năm nhập học : " + textEditNamNhapHoc.EditValue.ToString();
-                    wb.Worksheets[0].Rows[7].Cells[8].Value = "Ngày thi : " + textEditNgayThi.EditValue.ToString();
+                    wb.Worksheets[0].Rows[7].Cells[8].Value = "Ngày thi : " + string.Format("{0:dd/MM/yyyy}",textEditNgayThi.EditValue);
                     wb.Worksheets[0].Rows[8].Cells[8].Value = "Lần thi thứ : " + textEditLanThi.EditValue.ToString();
                     wb.Worksheets[0].Rows[9].Cells[0].Value = "Địa điểm thi : " + textEditDiaDiemThi.EditValue.ToString();
                     wb.Worksheets[0].Rows[8].Cells[0].Value = "Ngành : " + textEditNganh.EditValue.ToString();
@@ -103,42 +106,41 @@ namespace ReadDataExcel
                         wb.Worksheets[0].Rows[iRowCount].Cells[0].CellFormat.TopBorderStyle = CellBorderLineStyle.Thin;
                         wb.Worksheets[0].Rows[iRowCount].Cells[0].CellFormat.LeftBorderStyle = CellBorderLineStyle.Thin;
                         wb.Worksheets[0].Rows[iRowCount].Cells[0].CellFormat.RightBorderStyle = CellBorderLineStyle.Thin;
-                        wb.Worksheets[0].Rows[iRowCount].Cells[0].CellFormat.ShrinkToFit = ExcelDefaultableBoolean.True;
+
                         // Format collum MASV
                         wb.Worksheets[0].Rows[iRowCount].Cells[1].Value = dr.Rows[i]["MASV"].ToString();
                         wb.Worksheets[0].Rows[iRowCount].Cells[1].CellFormat.BottomBorderStyle = CellBorderLineStyle.Thin;
                         wb.Worksheets[0].Rows[iRowCount].Cells[1].CellFormat.TopBorderStyle = CellBorderLineStyle.Thin;
                         wb.Worksheets[0].Rows[iRowCount].Cells[1].CellFormat.LeftBorderStyle = CellBorderLineStyle.Thin;
                         wb.Worksheets[0].Rows[iRowCount].Cells[1].CellFormat.RightBorderStyle = CellBorderLineStyle.Thin;
-                        wb.Worksheets[0].Rows[iRowCount].Cells[1].CellFormat.ShrinkToFit = ExcelDefaultableBoolean.True;
+
                         // Format collum HODEM
                         wb.Worksheets[0].Rows[iRowCount].Cells[2].Value = dr.Rows[i]["HODEM"].ToString();
                         wb.Worksheets[0].Rows[iRowCount].Cells[2].CellFormat.BottomBorderStyle = CellBorderLineStyle.Thin;
                         wb.Worksheets[0].Rows[iRowCount].Cells[2].CellFormat.TopBorderStyle = CellBorderLineStyle.Thin;
                         wb.Worksheets[0].Rows[iRowCount].Cells[2].CellFormat.LeftBorderStyle = CellBorderLineStyle.Thin;
                         wb.Worksheets[0].Rows[iRowCount].Cells[2].CellFormat.RightBorderStyle = CellBorderLineStyle.Thin;
-                        wb.Worksheets[0].Rows[iRowCount].Cells[2].CellFormat.ShrinkToFit = ExcelDefaultableBoolean.True;
+
                         // Format collum TEN
                         wb.Worksheets[0].Rows[iRowCount].Cells[3].Value = dr.Rows[i]["TEN"].ToString();
                         wb.Worksheets[0].Rows[iRowCount].Cells[3].CellFormat.BottomBorderStyle = CellBorderLineStyle.Thin;
                         wb.Worksheets[0].Rows[iRowCount].Cells[3].CellFormat.TopBorderStyle = CellBorderLineStyle.Thin;
                         wb.Worksheets[0].Rows[iRowCount].Cells[3].CellFormat.LeftBorderStyle = CellBorderLineStyle.Thin;
                         wb.Worksheets[0].Rows[iRowCount].Cells[3].CellFormat.RightBorderStyle = CellBorderLineStyle.Thin;
-                        wb.Worksheets[0].Rows[iRowCount].Cells[3].CellFormat.ShrinkToFit = ExcelDefaultableBoolean.True;
                         // Format collum NGAYSINH
                         wb.Worksheets[0].Rows[iRowCount].Cells[4].Value = dr.Rows[i]["NGAYSINH"];
                         wb.Worksheets[0].Rows[iRowCount].Cells[4].CellFormat.BottomBorderStyle = CellBorderLineStyle.Thin;
                         wb.Worksheets[0].Rows[iRowCount].Cells[4].CellFormat.TopBorderStyle = CellBorderLineStyle.Thin;
                         wb.Worksheets[0].Rows[iRowCount].Cells[4].CellFormat.LeftBorderStyle = CellBorderLineStyle.Thin;
                         wb.Worksheets[0].Rows[iRowCount].Cells[4].CellFormat.RightBorderStyle = CellBorderLineStyle.Thin;
-                        wb.Worksheets[0].Rows[iRowCount].Cells[4].CellFormat.ShrinkToFit = ExcelDefaultableBoolean.True;
+
                         // Format collum GIOITINH
                         wb.Worksheets[0].Rows[iRowCount].Cells[5].Value = dr.Rows[i]["GIOITINH"].ToString();
                         wb.Worksheets[0].Rows[iRowCount].Cells[5].CellFormat.BottomBorderStyle = CellBorderLineStyle.Thin;
                         wb.Worksheets[0].Rows[iRowCount].Cells[5].CellFormat.TopBorderStyle = CellBorderLineStyle.Thin;
                         wb.Worksheets[0].Rows[iRowCount].Cells[5].CellFormat.LeftBorderStyle = CellBorderLineStyle.Thin;
                         wb.Worksheets[0].Rows[iRowCount].Cells[5].CellFormat.RightBorderStyle = CellBorderLineStyle.Thin;
-                        wb.Worksheets[0].Rows[iRowCount].Cells[5].CellFormat.ShrinkToFit = ExcelDefaultableBoolean.True;
+
                         // Format collum DIEMDANHGIA
                         wb.Worksheets[0].Rows[iRowCount].Cells[6].Value = dr.Rows[i]["DIEMDANHGIA"].ToString();
                         wb.Worksheets[0].Rows[iRowCount].Cells[6].CellFormat.BottomBorderStyle = CellBorderLineStyle.Thin;
@@ -184,13 +186,13 @@ namespace ReadDataExcel
                         wb.Worksheets[0].Rows[iRowCount].Cells[12].CellFormat.TopBorderStyle = CellBorderLineStyle.Thin;
                         wb.Worksheets[0].Rows[iRowCount].Cells[12].CellFormat.LeftBorderStyle = CellBorderLineStyle.Thin;
                         wb.Worksheets[0].Rows[iRowCount].Cells[12].CellFormat.RightBorderStyle = CellBorderLineStyle.Thin;
-                        wb.Worksheets[0].Rows[iRowCount].Cells[12].CellFormat.ShrinkToFit = ExcelDefaultableBoolean.True;
+
                         // Format collum GHICHU
                         wb.Worksheets[0].Rows[iRowCount].Cells[13].CellFormat.BottomBorderStyle = CellBorderLineStyle.Thin;
                         wb.Worksheets[0].Rows[iRowCount].Cells[13].CellFormat.TopBorderStyle = CellBorderLineStyle.Thin;
                         wb.Worksheets[0].Rows[iRowCount].Cells[13].CellFormat.LeftBorderStyle = CellBorderLineStyle.Thin;
                         wb.Worksheets[0].Rows[iRowCount].Cells[13].CellFormat.RightBorderStyle = CellBorderLineStyle.Thin;
-                        wb.Worksheets[0].Rows[iRowCount].Cells[13].CellFormat.ShrinkToFit = ExcelDefaultableBoolean.True;
+
                         iRowCount++;
                         wb.Worksheets[0].Rows[7].Cells[0].Value = "Tổng số học viên : " + iStt;
                         iStt++;
@@ -257,7 +259,15 @@ namespace ReadDataExcel
 
         private void Form1_Load(object sender,EventArgs e)
         {
-            textEditSavaFilePath.Enabled = false;
+            try
+            {
+                textEditSavaFilePath.Enabled = false;
+                InitializeDropDown();
+            }
+            catch (Exception ex)
+            {
+                EasyDialog.ShowErrorDialog("Không khởi tạo được dữ liệu");
+            }
         }
 
         private void simpleButton1_Click(object sender,EventArgs e)
@@ -415,7 +425,7 @@ namespace ReadDataExcel
 
                             #region Ngày thi
 
-                            ngaythi.Value = "Ngày thi : " + textEditNgayThi.EditValue.ToString();
+                            ngaythi.Value = "Ngày thi : " + string.Format("{0:dd/MM/yyyy}",textEditNgayThi.EditValue);
                             ngaythi.CellFormat.SetFormatting(lop.CellFormat);
 
                             #endregion Ngày thi
@@ -551,6 +561,31 @@ namespace ReadDataExcel
                         EasyDialog.ShowErrorDialog("Không có dữ liệu về ca thi ");
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                EasyDialog.ShowErrorDialog(ex.Message);
+            }
+        }
+
+        private void InitializeDropDown()
+        {
+            try
+            {
+                //Create a list to store all the items.
+                List<string> Items = new List<string>();
+                //Load the document from a file.
+                XmlDocument doc = new XmlDocument();
+                doc.Load("config.xml");
+                //Get all the <node3> nodes.
+                XmlNodeList Node3Nodes = doc.GetElementsByTagName("name");
+                //Loop through the node list to get the data we want.
+                foreach (XmlNode Node3Node in Node3Nodes)
+                {
+                    //These nodes contain the data we want so lets add it to our List.
+                    Items.Add(Node3Node.InnerText);
+                }
+                textEditNganh.Properties.Items.AddRange(Items.ToArray());
             }
             catch (Exception ex)
             {

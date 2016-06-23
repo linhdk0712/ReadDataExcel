@@ -33,15 +33,14 @@
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.textEditSavaFilePath = new DevExpress.XtraEditors.TextEdit();
             this.textEditDiaDiemThi = new DevExpress.XtraEditors.TextEdit();
-            this.textEditNganh = new DevExpress.XtraEditors.TextEdit();
-            this.textEditLanThi = new DevExpress.XtraEditors.TextEdit();
-            this.textEditNgayThi = new DevExpress.XtraEditors.TextEdit();
             this.textEditNamNhapHoc = new DevExpress.XtraEditors.TextEdit();
             this.textEditFileName = new DevExpress.XtraEditors.TextEdit();
             this.simpleButtonExport = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonSelectFile = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.textEditNgayThi = new DevExpress.XtraEditors.DateEdit();
+            this.textEditLanThi = new DevExpress.XtraEditors.ComboBoxEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -55,17 +54,18 @@
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.textEditNganh = new DevExpress.XtraEditors.ComboBoxEdit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEditSavaFilePath.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditDiaDiemThi.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditNganh.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditLanThi.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditNgayThi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditNamNhapHoc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditFileName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditNgayThi.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditNgayThi.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditLanThi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
@@ -78,6 +78,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditNganh.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -85,14 +86,14 @@
             this.layoutControl1.Controls.Add(this.simpleButton1);
             this.layoutControl1.Controls.Add(this.textEditSavaFilePath);
             this.layoutControl1.Controls.Add(this.textEditDiaDiemThi);
-            this.layoutControl1.Controls.Add(this.textEditNganh);
-            this.layoutControl1.Controls.Add(this.textEditLanThi);
-            this.layoutControl1.Controls.Add(this.textEditNgayThi);
             this.layoutControl1.Controls.Add(this.textEditNamNhapHoc);
             this.layoutControl1.Controls.Add(this.textEditFileName);
             this.layoutControl1.Controls.Add(this.simpleButtonExport);
             this.layoutControl1.Controls.Add(this.simpleButtonSelectFile);
             this.layoutControl1.Controls.Add(this.gridControl1);
+            this.layoutControl1.Controls.Add(this.textEditNgayThi);
+            this.layoutControl1.Controls.Add(this.textEditLanThi);
+            this.layoutControl1.Controls.Add(this.textEditNganh);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
@@ -137,30 +138,6 @@
             this.textEditDiaDiemThi.Size = new System.Drawing.Size(360, 20);
             this.textEditDiaDiemThi.StyleController = this.layoutControl1;
             this.textEditDiaDiemThi.TabIndex = 12;
-            // 
-            // textEditNganh
-            // 
-            this.textEditNganh.Location = new System.Drawing.Point(210, 12);
-            this.textEditNganh.Name = "textEditNganh";
-            this.textEditNganh.Size = new System.Drawing.Size(147, 20);
-            this.textEditNganh.StyleController = this.layoutControl1;
-            this.textEditNganh.TabIndex = 11;
-            // 
-            // textEditLanThi
-            // 
-            this.textEditLanThi.Location = new System.Drawing.Point(754, 38);
-            this.textEditLanThi.Name = "textEditLanThi";
-            this.textEditLanThi.Size = new System.Drawing.Size(50, 20);
-            this.textEditLanThi.StyleController = this.layoutControl1;
-            this.textEditLanThi.TabIndex = 10;
-            // 
-            // textEditNgayThi
-            // 
-            this.textEditNgayThi.Location = new System.Drawing.Point(444, 38);
-            this.textEditNgayThi.Name = "textEditNgayThi";
-            this.textEditNgayThi.Size = new System.Drawing.Size(223, 20);
-            this.textEditNgayThi.StyleController = this.layoutControl1;
-            this.textEditNgayThi.TabIndex = 9;
             // 
             // textEditNamNhapHoc
             // 
@@ -217,6 +194,35 @@
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsView.RowAutoHeight = true;
             this.gridView1.OptionsView.ShowGroupPanel = false;
+            // 
+            // textEditNgayThi
+            // 
+            this.textEditNgayThi.EditValue = null;
+            this.textEditNgayThi.Location = new System.Drawing.Point(444, 38);
+            this.textEditNgayThi.Name = "textEditNgayThi";
+            this.textEditNgayThi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.textEditNgayThi.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.textEditNgayThi.Properties.Mask.EditMask = "\\d?\\d?/\\d?\\d?/\\d\\d\\d\\d";
+            this.textEditNgayThi.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Regular;
+            this.textEditNgayThi.Size = new System.Drawing.Size(166, 20);
+            this.textEditNgayThi.StyleController = this.layoutControl1;
+            this.textEditNgayThi.TabIndex = 9;
+            // 
+            // textEditLanThi
+            // 
+            this.textEditLanThi.Location = new System.Drawing.Point(697, 38);
+            this.textEditLanThi.Name = "textEditLanThi";
+            this.textEditLanThi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.textEditLanThi.Properties.Items.AddRange(new object[] {
+            "01",
+            "02",
+            "03"});
+            this.textEditLanThi.Size = new System.Drawing.Size(107, 20);
+            this.textEditLanThi.StyleController = this.layoutControl1;
+            this.textEditLanThi.TabIndex = 10;
             // 
             // layoutControlGroup1
             // 
@@ -289,16 +295,16 @@
             this.layoutControlItem6.Control = this.textEditNgayThi;
             this.layoutControlItem6.Location = new System.Drawing.Point(349, 26);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(310, 26);
+            this.layoutControlItem6.Size = new System.Drawing.Size(253, 26);
             this.layoutControlItem6.Text = "Ngày thi :";
             this.layoutControlItem6.TextSize = new System.Drawing.Size(80, 13);
             // 
             // layoutControlItem7
             // 
             this.layoutControlItem7.Control = this.textEditLanThi;
-            this.layoutControlItem7.Location = new System.Drawing.Point(659, 26);
+            this.layoutControlItem7.Location = new System.Drawing.Point(602, 26);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(137, 26);
+            this.layoutControlItem7.Size = new System.Drawing.Size(194, 26);
             this.layoutControlItem7.Text = "Lần thi :";
             this.layoutControlItem7.TextSize = new System.Drawing.Size(80, 13);
             // 
@@ -338,6 +344,16 @@
             this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem10.TextVisible = false;
             // 
+            // textEditNganh
+            // 
+            this.textEditNganh.Location = new System.Drawing.Point(210, 12);
+            this.textEditNganh.Name = "textEditNganh";
+            this.textEditNganh.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.textEditNganh.Size = new System.Drawing.Size(147, 20);
+            this.textEditNganh.StyleController = this.layoutControl1;
+            this.textEditNganh.TabIndex = 11;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -345,19 +361,20 @@
             this.ClientSize = new System.Drawing.Size(816, 468);
             this.Controls.Add(this.layoutControl1);
             this.Name = "Form1";
+            this.ShowIcon = false;
             this.Text = "F730 Application";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.textEditSavaFilePath.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditDiaDiemThi.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditNganh.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditLanThi.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditNgayThi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditNamNhapHoc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditFileName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditNgayThi.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditNgayThi.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditLanThi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
@@ -370,6 +387,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditNganh.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -387,13 +405,10 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
-        private DevExpress.XtraEditors.TextEdit textEditLanThi;
-        private DevExpress.XtraEditors.TextEdit textEditNgayThi;
         private DevExpress.XtraEditors.TextEdit textEditNamNhapHoc;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
-        private DevExpress.XtraEditors.TextEdit textEditNganh;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
         private DevExpress.XtraEditors.TextEdit textEditDiaDiemThi;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
@@ -402,6 +417,9 @@
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
+        private DevExpress.XtraEditors.DateEdit textEditNgayThi;
+        private DevExpress.XtraEditors.ComboBoxEdit textEditLanThi;
+        private DevExpress.XtraEditors.ComboBoxEdit textEditNganh;
     }
 }
 
